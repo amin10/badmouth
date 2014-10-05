@@ -1,7 +1,1 @@
-*.egg
-*.egg-info
-*.pyc
-./badmouth/bin
-./badmouth/include
-./badmouth/lib
-./badmouth/local
+badmouth/bin
