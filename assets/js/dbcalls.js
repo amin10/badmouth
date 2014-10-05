@@ -97,7 +97,9 @@ promise.then(function(results) {
     //console.log(img);
     img.attr("src", imgUrl);
     img.attr("data-name", name);
-    img.attr("data-id", target_id);  
+    img.attr("data-id", target_id);
+    img.attr("alt", name);
+    img.attr("title", name);
     }
 })
 }
