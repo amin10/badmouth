@@ -110,16 +110,18 @@ function populate_feed(target_id){
  	var query = new Parse.Query(Target);
 	query.get(target_id, {
         success: function(target) {
+            target_name = target.get("name");
             query = target.relation("badmouths").query()
             query.descending("votes")
             query.find().then(function (results2) {
                 var list = $('#feed-list')
                 console.log(list);
                 list.html('')
+                list.append('<h3 align = center>' + target_name + '</h3>')
                 for (i = 0; i < results2.length; i++){
                     if (i > 7) {break;}
                     votes = results2[i].get("votes") || '0'
-                    list.append('<li><blockquote>' + results2[i].get("text") + votes + '</blockquote></li>') 
+                    list.append('<li><blockquote>' + results2[i].get("text")  + '</blockquote></li>') 
                 }
             })
         },

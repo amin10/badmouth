@@ -42,35 +42,6 @@
 
 	<div class="feed">
 		<ul class="feed-list" id="feed-list">
-			<li class="individual-feed">
-				<h3 class="feed_title">This is a title.</h3>
-				<div class="feed_image">
-					<img src="assets/images/portman.jpg" class="img-circle">	
-				</div><!--/.feed_image -->
-
-				<div class="feed_quote">
-					<blockquote>You know, you really don't need a forensics team to get to the bottom of this. If you guys were the inventors of Facebook, you'd have invented Facebook.</blockquote>
-				</div><!--/.feed_quote -->
-
-				<p class="clearfix">&nbsp;</p>
-
-				<!--<div class="like_wrapper">
-					<a href="#"><img class="like" src="assets/images/like.png"></a>
-				</div>/.like_wrapper -->
-			</li>
-			<li class="individual-feed">
-				<h3 class="feed_title">This might also be a title, I'm not sure.</h3>
-				<div class="feed_image">
-					<img src="assets/images/angelina.jpg" class="img-circle">	
-				</div><!--/.feed_image -->
-
-				<div class="feed_quote">
-					<blockquote>You know, you really don't need a forensics team to get to the bottom of this. If you guys were the inventors of Facebook, you'd have invented Facebook.</blockquote>
-				</div><!--/.feed_quote -->
-
-				<p class="clearfix">&nbsp;</p>
-			
-			</li>
 		</ul><!--/.feed-list -->
 	</div><!--/.feed -->
 
@@ -124,7 +95,7 @@
             var target_id = $('.circle-images').find('#' + clicked_image)[0].dataset.id
 			if (target_name && target_id) {
 				$('.chosen_target').val(target_name);
-				$('.badmouth_text').attr("placeholder", "How did " + target_name + " ruin your day?");
+				$('.badmouth_text').attr("placeholder", "How did " + target_name + " conspire against you?");
                 populate_feed(target_id);
 			}
 
