@@ -1,0 +1,176 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+html {
+	background: url(../images/bckg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	background: transparent;
+}
+
+/** Input **/
+input[type="text"] {
+	padding: 5px;
+	outline: none;
+	width: 400px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-bottom: 2px solid #FFC190;
+	font-family: serif;
+	font-size: 1.2em;
+	color: rgb(95, 95, 95);
+	text-align: center;
+}
+
+input[type="text"]:focus {
+	padding: 5px;
+	outline:none;
+	width: 400px;
+	height: 50px;
+	background: rgba(253, 253, 253, 0.33);
+	border-bottom: 2px solid #FFC190;
+}
+
+input[type="text"]:hover {
+	background: rgba(213, 213, 213, 0.12);
+}
+
+textarea.badmouth_text {
+	background: transparent;
+	outline: none;
+	border: none;
+	resize: none;
+	border: 2px solid #E6E6E6;
+	font-family: serif;
+	font-size: 1.2em;
+	color: rgb(95, 95, 95);
+	text-align: center;
+	margin: 25px 5px 5px 5px;
+	width: 400px;
+	height: 80px;
+}
+
+textarea.badmouth_text:focus {
+	background: rgba(253, 253, 253, 0.33);
+}
+
+textarea.badmouth_text:hover {
+	background: rgba(213, 213, 213, 0.12);
+}
+
+.remaining_character_count {
+	color: rgb(207, 207, 207);
+	text-align: right;
+	margin-right: 40px;
+}
+
+.bitch_wrapper {
+	text-align: right;
+	margin-right: 30px;
+	padding: 5px;	
+}
+
+input[type="button"].bitch {
+	outline: none;
+	border: 0px;
+	padding: 5px 15px 5px 15px;
+	font-size: 0.9em;
+	color: white;
+	background: #8F98FF;
+	font-weight: bold;
+}
+
+input[type="button"].bitch:hover {
+	background: #7680FF;
+	color: rgb(230, 230, 230);
+}
+
+input[type="button"].bitch:active {
+	background: #6F7BFF;
+	color: #ffffff;
+}
+
+
+/** Input Ends **/
+
+/** Circle Images **/
+.circle-images {
+	position: relative;
+    width: 55em;
+    height: 55em;
+    padding: 2.8em;
+    /*2.8em = 2em*1.4 (2em = half the width of a link with img, 1.4 = sqrt(2))*/
+    border: 1px dashed #71B668;
+    border-radius: 50%;
+    margin: 5em auto 0;
+}
+
+.circle-images a {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin: -2em;
+}
+
+.circle-images img {
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+
+.target {
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.deg0 { transform: translate(25em); } /* 27em = half the width of the wrapper */
+.deg45 { transform: rotate(45deg) translate(25em) rotate(-45deg); }
+.deg90 { transform: rotate(90deg) translate(26em) rotate(-90deg); }
+.deg135 { transform: rotate(135deg) translate(27em) rotate(-135deg); }
+.deg180 { transform: translate(-29em); }
+.deg225 { transform: rotate(225deg) translate(29em) rotate(-225deg); }
+.deg270 { transform: rotate(270deg) translate(29em) rotate(-270deg); }
+.deg315 { transform: rotate(315deg) translate(27em) rotate(-315deg); }
+/** Circle Images Ends **/
+
+/** Middle Box **/
+.middle-box-wrapper {
+	text-align: center;
+}
+
+.middle-box {
+	text-align: center;
+	border: 1px solid #9dbef5;
+	padding: 15px;
+	width: 500px;
+	height: 320px;
+	margin: 0 auto;
+	margin-top: 200px;
+	overflow: hidden;
+}
+
+h1.title {
+	font-family: 'Bitter', serif;
+	color: #8F98FF;
+	cursor: pointer;
+	font-variant: small-caps;
+	font-size: 3em;
+}
+
+.grayscale {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: gray;
+	-webkit-filter: grayscale(1);
+}
+/** Middle Box Ends **/
