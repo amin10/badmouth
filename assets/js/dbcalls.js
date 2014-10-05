@@ -2,6 +2,7 @@ Parse.initialize("s32blhuMK0fzjARmluinIoP7GMNCsWXPsREdsFhD", "geSjnD0tu528nZjZHM
 
 var Target = Parse.Object.extend("Target");
 var Badmouth = Parse.Object.extend("Badmouth");
+var main_target_ids = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth']
 
 function submit_badmouth(target_name, badmouth_text){
     var query = new Parse.Query(Target);
@@ -83,10 +84,16 @@ function get_target_promise(){
     return query.find();
 }
 
-function populate_table(){
+function populate_eights(){
 promise = get_target_promise();
-promise.then(function(results) {
-  console.log(results);  
+promise.then(function(results) {    
+  for (i = 0; i<8; i++){
+    imgUrl = results[i].get("imageURL")
+    console.log(imgUrl);
+    img = $('#' + main_target_ids[i]).children();
+    console.log(img);
+    img.attr("src", imgUrl);
+    }
 })
 }
                         
