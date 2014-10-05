@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title>Badmouthing</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -15,22 +18,68 @@
 		<div class="center-box">
 			<div class="middle-box">
 				<form action="#">
-					<input type="text" placeholder="Something" class="tag" id="tag">
+					<h1 class="title">What's fucked up?</h1>
+					<input type="text" placeholder="What's fucked up?" class="tag" id="tag">
 				</form>
 			</div><!--/.middle-box -->
 		</div><!--/.center-box -->
 
-		<a href="#" class="deg0"><img src="assets/images/angelina.jpg" class="img-circle"></a>
-		<a href="#" class="deg45"><img src="assets/images/stone.jpg" class="img-circle"></a>
-		<a href="#" class="deg90"><img src="assets/images/padukone.jpg" class="img-circle"></a>
-		<a href="#" class="deg135"><img src="assets/images/lawrence.jpg" class="img-circle"></a>
-		<a href="#" class="deg180"><img src="assets/images/portman.jpg" class="img-circle"></a>
-		<a href="#" class="deg225"><img src="assets/images/smulders.jpg" class="img-circle"></a>
-		<a href="#" class="deg270"><img src="assets/images/knightley.jpg" class="img-circle"></a>
-		<a href="#" class="deg315"><img src="assets/images/watson.jpg" class="img-circle"></a>
+		<a href="#" id="first" class="target deg0" data-angle="0"><img id="angelina" src="assets/images/angelina.jpg" class="img-circle"></a>
+		<a href="#" id="second" class="target deg45" data-angle="45"><img id="stone" src="assets/images/stone.jpg" class="img-circle"></a>
+		<a href="#" id="third" class="target deg90" data-angle="90"><img id="padukone" src="assets/images/padukone.jpg" class="img-circle"></a>
+		<a href="#" id="fourth" class="target deg135" data-angle="135"><img id="lawrence" src="assets/images/lawrence.jpg" class="img-circle"></a>
+		<a href="#" id="fifth" class="target deg180" data-angle="180"><img id="portman" src="assets/images/portman.jpg" class="img-circle"></a>
+		<a href="#" id="sixth" class="target deg225" data-angle="225"><img id="smulders" src="assets/images/smulders.jpg" class="img-circle"></a>
+		<a href="#" id="seventh" class="target deg270" data-angle="270"><img id="knightley" src="assets/images/knightley.jpg" class="img-circle"></a>
+		<a href="#" id="eighth" class="target deg315" data-angle="315"><img id="watson" src="assets/images/watson.jpg" class="img-circle"></a>
 	</div><!--/.circle-images -->
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+		var top_targets = {
+			targets: ['angelina', 'stone', 'padukone', 'lawrence', 'portman', 'smulders', 'knightley', 'watson'],
+			target_ids: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth'],
 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+			get_target_angle: function(target_name) {
+				return $('#' + target_name)[0].parentNode.dataset.angle;
+			},
+
+			rotate_target_images: function(target_on_top) {
+				while(top_targets.get_target_angle(target_on_top) != 270) { // 270 is the angle at the top.
+				// for(var j = 0; j < 2; j++) {
+					for(var i = 0; i < top_targets.target_ids.length; i++) {
+						var moving_target = top_targets.targets[i];
+						// console.log(moving_target);
+						var current_angle = top_targets.get_target_angle(moving_target);
+						console.log(moving_target);
+
+						console.log(top_targets.target_ids[i]);
+
+						var selected_target = $(".circle-images").find('#' + top_targets.target_ids[i])[0].id;
+						
+						// console.log(current_angle);	
+						console.log(selected_target);
+						
+						$('#' + selected_target).attr("data-angle", ((parseInt(current_angle) + 45) % 360));
+						$('#' + selected_target).addClass("deg" + ((parseInt(current_angle) + 45) % 360));
+						$('#' + selected_target).removeClass("deg" + current_angle);			// You can use a variant of this code to force the startup animation.
+					}
+				}
+			}
+		};
+
+		$('.target').click(function(e) {
+			var clicked_image = e.target.id;
+			$('#' + clicked_image).removeClass('grayscale');
+			for(var i = 0; i < top_targets.targets.length; i++) {
+				if(top_targets.targets[i] != clicked_image) {
+					change_to_grayscale = top_targets.targets[i];
+					$('#' + change_to_grayscale).addClass('grayscale');
+				}
+			}
+			top_targets.rotate_target_images(clicked_image);
+		});
+	</script>
 </body>
 </html>
