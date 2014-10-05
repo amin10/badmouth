@@ -102,7 +102,7 @@ input[type="submit"].bitch:active {
 
 .circle_images_wrapper {
 	float: left;
-	width: 55%;
+	width: 65%;
 }
 
 .circle-images {
@@ -190,7 +190,7 @@ h1.title {
 	font-size: 1.2em;
 	color: rgb(92, 92, 92);
 	float: right;
-	width: 40%;
+	width: 30%;
 }
 
 ul.feed-list {
