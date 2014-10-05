@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title>Badmouthing</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -36,6 +39,7 @@
 		<script type="text/javascript">
 		var top_targets = {
 			targets: ['angelina', 'stone', 'padukone', 'lawrence', 'portman', 'smulders', 'knightley', 'watson'],
+			target_ids: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth'],
 
 			get_target_angle: function(target_name) {
 				return $('#' + target_name)[0].parentNode.dataset.angle;
@@ -43,16 +47,23 @@
 
 			rotate_target_images: function(target_on_top) {
 				while(top_targets.get_target_angle(target_on_top) != 270) { // 270 is the angle at the top.
-				
-					for(var i = 0; i < 2; i++) {
-						moving_target = top_targets.targets[i];
-						current_angle = top_targets.get_target_angle(moving_target);
+				// for(var j = 0; j < 2; j++) {
+					for(var i = 0; i < top_targets.target_ids.length; i++) {
+						var moving_target = top_targets.targets[i];
+						// console.log(moving_target);
+						var current_angle = top_targets.get_target_angle(moving_target);
+						console.log(moving_target);
 
-						selected_target = $('.deg' + current_angle)[0].id;
+						console.log(top_targets.target_ids[i]);
+
+						var selected_target = $(".circle-images").find('#' + top_targets.target_ids[i])[0].id;
 						
-						$('#' + selected_target).removeClass("deg" + current_angle);
+						// console.log(current_angle);	
+						console.log(selected_target);
+						
 						$('#' + selected_target).attr("data-angle", ((parseInt(current_angle) + 45) % 360));
 						$('#' + selected_target).addClass("deg" + ((parseInt(current_angle) + 45) % 360));
+						$('#' + selected_target).removeClass("deg" + current_angle);			// You can use a variant of this code to force the startup animation.
 					}
 				}
 			}
