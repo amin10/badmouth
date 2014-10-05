@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
 html {
 	background: url(../images/bckg.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
@@ -13,8 +15,21 @@ body {
 /** Input **/
 input[type="text"] {
 	padding: 5px;
-	width: 250px;
-	height: 35px;
+	outline: none;
+	width: 400px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-bottom: 2px solid #FFC190;
+}
+
+input[type="text"]:focus {
+	padding: 5px;
+	outline:none;
+	width: 400px;
+	height: 50px;
+	background: rgba(213, 213, 213, 0.12);
+	border-bottom: 2px solid #FFC190;
 }
 /** Input Ends **/
 
@@ -25,7 +40,7 @@ input[type="text"] {
     height: 55em;
     padding: 2.8em;
     /*2.8em = 2em*1.4 (2em = half the width of a link with img, 1.4 = sqrt(2))*/
-    border: dashed 1px;
+    border: 1px dashed #71B668;
     border-radius: 50%;
     margin: 5em auto 0;
 }
@@ -43,12 +58,19 @@ input[type="text"] {
 	display: block;
 }
 
+.target {
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
 .deg0 { transform: translate(27em); } /* 27em = half the width of the wrapper */
 .deg45 { transform: rotate(45deg) translate(27em) rotate(-45deg); }
 .deg90 { transform: rotate(90deg) translate(27em) rotate(-90deg); }
 .deg135 { transform: rotate(135deg) translate(27em) rotate(-135deg); }
 .deg180 { transform: translate(-27em); }
-.deg225 { transform: rotate(225deg) translate(27em) rotate(-225deg); }
+.deg225 { transform: rotate(225deg) translate(29.5em) rotate(-225deg); }
 .deg270 { transform: rotate(270deg) translate(27em) rotate(-270deg); }
 .deg315 { transform: rotate(315deg) translate(27em) rotate(-315deg); }
 /** Circle Images Ends **/
@@ -60,11 +82,30 @@ input[type="text"] {
 
 .middle-box {
 	text-align: center;
-	border: 1px solid red;
+	border: 1px solid #9dbef5;
 	padding: 15px;
 	width: 500px;
 	height: 300px;
 	margin: 0 auto;
 	margin-top: 200px;
+}
+
+h1.title {
+	font-family: 'Bitter', serif;
+	color: #8F98FF;
+	cursor: pointer;
+	font-variant: small-caps;
+	font-size: 3em;
+}
+
+.grayscale {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: url(/assets/svg/desaturate.svg#greyscale);
+	filter: gray;
+	-webkit-filter: grayscale(1);
 }
 /** Middle Box Ends **/
