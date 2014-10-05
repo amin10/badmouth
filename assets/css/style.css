@@ -174,3 +174,69 @@ h1.title {
 	-webkit-filter: grayscale(1);
 }
 /** Middle Box Ends **/
+
+
+/** Feed Begins **/
+.feed {
+	border-top: 2px solid #FFC190;
+	margin: 100px 100px 50px 100px;
+	font-family: serif;
+	font-size: 1.2em;
+	color: rgb(92, 92, 92);
+}
+
+ul.feed-list {
+	list-style-type: none;
+}
+
+blockquote{
+  display:block;
+
+  padding: 25px 20px 25px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #888;
+  text-align: justify;
+  border: none;
+}
+
+blockquote::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #DADADA;
+  
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top:5px;
+}
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
+blockquote a{
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 3px;
+  color: #c76c0c;
+}
+
+blockquote a:hover{
+ color: #666;
+}
+
+blockquote em{
+  font-style: italic;
+}
+/** Feed Ends **/
