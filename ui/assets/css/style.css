@@ -59,10 +59,10 @@ input[type="text"]:focus {
 }
 
 .target {
-	-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .deg0 { transform: translate(27em); } /* 27em = half the width of the wrapper */
@@ -104,7 +104,6 @@ h1.title {
 	-moz-filter: grayscale(100%);
 	-ms-filter: grayscale(100%);
 	-o-filter: grayscale(100%);
-	filter: url(/assets/svg/desaturate.svg#greyscale);
 	filter: gray;
 	-webkit-filter: grayscale(1);
 }

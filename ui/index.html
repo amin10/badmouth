@@ -71,15 +71,11 @@
 
 		$('.target').click(function(e) {
 			var clicked_image = e.target.id;
+			$('#' + clicked_image).removeClass('grayscale');
 			for(var i = 0; i < top_targets.targets.length; i++) {
 				if(top_targets.targets[i] != clicked_image) {
 					change_to_grayscale = top_targets.targets[i];
-					if($('#' + change_to_grayscale).hasClass('grayscale')) {
-						$('#' + change_to_grayscale).removeClass('grayscale');
-					}
-					else {
-						$('#' + change_to_grayscale).addClass('grayscale');
-					}
+					$('#' + change_to_grayscale).addClass('grayscale');
 				}
 			}
 			top_targets.rotate_target_images(clicked_image);
