@@ -3,6 +3,34 @@ Parse.initialize("s32blhuMK0fzjARmluinIoP7GMNCsWXPsREdsFhD", "geSjnD0tu528nZjZHM
 var Target = Parse.Object.extend("Target");
 var Badmouth = Parse.Object.extend("Badmouth");
 
+function submit_badmouth(target_name, badmouth_text){
+    var query = new Parse.Query(Target);
+    query.equalTo("name", target_name);
+    query.find({
+        success: function(results) {
+            if (results.length == 0) { 
+                var target = new Target();
+                target.set("name", target_name);
+                target.save(null, {
+                    success: function(target) {
+                        insert_badmouth(target.id, badmouth_text); 
+                    },
+                    error: function(error) {
+                    console.log(error);
+                    }
+                })
+            }
+            else {
+                insert_badmouth(results[0].id, badmouth_text); 
+            }
+        },
+        error: function(error) {
+        console.log(error);
+        }
+        
+    })
+    
+}
 
 function insert_badmouth(target_id, badmouth_text){
 	var Target = Parse.Object.extend("Target");
