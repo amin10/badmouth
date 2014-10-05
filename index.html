@@ -49,6 +49,10 @@
 		</ul><!--/.feed-list -->
 	</div><!--/.feed -->
 
+	<div class="end">
+		&nbsp;
+	</div><!--/.end -->
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	
 	<script src="http://www.parsecdn.com/js/parse-1.3.0.min.js"></script>
@@ -96,13 +100,13 @@
 			}
 
 			var target_name = top_targets.rotate_target_images(clicked_image);
-			
+
 			if (target_name) {
-				$('.chosen_target').animate({'color': 'red'}, 500, function() {
-					$('.chosen_target').val(target_name);
-					$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
-				});
+				$('.chosen_target').val(target_name);
+				$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
 			}
+
+			// populate_feed()
 		});
 
 		$('.badmouth_text').keyup(function() {
