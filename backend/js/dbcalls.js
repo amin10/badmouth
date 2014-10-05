@@ -17,32 +17,33 @@ function insert_badmouth(target_id, badmouth_text){
 	badmouth.save(null, {
 		success: function(badmouth) {
     		alert('New object created with objectId: ' + badmouth.id);
+    		target.fetch({
+		    	success: function(target) {
+		    		target.increment("bmcount");
+		    		var relation = target.relation("badmouths");
+		    		relation.add(badmouth);
+		    		target.save(null, {
+						success: function(target) {
+		    				alert('New object created with objectId: ' + target.id);
+						},
+						error: function(target, error) {
+		    				alert('Failed to create new object, with error code: ' + error.message);
+						}
+
+					});
+		    		console.log("here");
+				},
+				error: function(target, error) {
+					console.log(error);
+				}
+			});
 		},
 		error: function(badmouth, error) {
     		alert('Failed to create new object, with error code: ' + error.message);
 		}
 	});
 
-	target.fetch({
-    	success: function(target) {
-    		target.increment("bmcount");
-    		var relation = target.relation("badmouths");
-    		relation.add(badmouth);
-    		target.save(null, {
-				success: function(target) {
-    				alert('New object created with objectId: ' + target.id);
-				},
-				error: function(target, error) {
-    				alert('Failed to create new object, with error code: ' + error.message);
-				}
-
-			});
-    		console.log("here");
-		},
-		error: function(target, error) {
-			console.log(error);
-		}
-	});
+			
 
 }
 
