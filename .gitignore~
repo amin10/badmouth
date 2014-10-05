@@ -4,4 +4,4 @@
 ./badmouth/bin
 ./badmouth/include
 ./badmouth/lib
-./badmouth/local
+badmouth/local
