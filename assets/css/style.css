@@ -291,6 +291,26 @@ h3.feed_title {
 	font-weight: bold;
 }
 
+.feed_image img {
+	width: 75px;
+	height: 75px;
+	display: block;
+}
+
+.feed_image {
+	float: left;
+	padding: 25px 0 0 0;
+}
+
+.feed_quote {
+	float: right;
+	width: 85%;
+}
+
+.clearfix {
+	clear: both;
+}
+
 /** Feed Ends **/
 
 
