@@ -99,17 +99,22 @@ input[type="submit"].bitch:active {
 /** Input Ends **/
 
 /** Circle Images **/
+
+.circle_images_wrapper {
+	float: left;
+	width: 55%%;
+	text-align: right;
+}
+
 .circle-images {
 	position: relative;
     width: 55em;
     height: 55em;
-    padding: 2.8em;
+    padding: 0.5em;
     /*2.8em = 2em*1.4 (2em = half the width of a link with img, 1.4 = sqrt(2))*/
     border: 1px dashed #71B668;
     border-radius: 50%;
     margin: 5em auto 0;
-    float: left;
-	margin-left: 100px;	
 }
 
 .circle-images a {
@@ -181,7 +186,7 @@ h1.title {
 /** Feed Begins **/
 .feed {
 	/*border-top: 2px solid #FFC190;*/
-	margin: 100px 100px 50px 100px;
+	margin: 100px 50px 50px 20px;
 	font-family: serif;
 	font-size: 1.2em;
 	color: rgb(92, 92, 92);
@@ -253,4 +258,33 @@ blockquote a:hover{
 blockquote em{
   font-style: italic;
 }
+
+.like_wrapper {
+
+}
+
+.like_wrapper img.like {
+	cursor: pointer;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: gray;
+	-webkit-filter: grayscale(1);
+	width: 30px;
+}
+
+.like_wrapper img.like:hover {
+	filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: none;
+	-webkit-filter: grayscale(0);
+}
+
 /** Feed Ends **/
+
+
