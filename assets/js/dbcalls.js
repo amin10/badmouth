@@ -92,9 +92,9 @@ promise.then(function(results) {
     imgUrl = results[i].get("imageURL")
     name = results[i].get("name")
     target_id = results[i].id
-//    console.log(imgUrl);
+    //console.log(imgUrl);
     img = $('#' + main_target_ids[i]).children();
-//    console.log(img);
+    //console.log(img);
     img.attr("src", imgUrl);
     img.attr("data-name", name);
     img.attr("data-id", target_id);  
