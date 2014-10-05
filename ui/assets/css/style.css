@@ -21,6 +21,10 @@ input[type="text"] {
 	background: transparent;
 	border: 1px solid transparent;
 	border-bottom: 2px solid #FFC190;
+	font-family: serif;
+	font-size: 1.2em;
+	color: rgb(95, 95, 95);
+	text-align: center;
 }
 
 input[type="text"]:focus {
@@ -31,6 +35,26 @@ input[type="text"]:focus {
 	background: rgba(213, 213, 213, 0.12);
 	border-bottom: 2px solid #FFC190;
 }
+
+textarea.badmouth_text {
+	background: transparent;
+	outline: none;
+	border: none;
+	resize: none;
+	border: 2px solid #E6E6E6;
+	font-family: serif;
+	font-size: 1.2em;
+	color: rgb(95, 95, 95);
+	text-align: center;
+	margin: 25px 5px 25px 5px;
+	width: 400px;
+}
+
+textarea.badmouth_text:focus {
+	background: rgba(253, 253, 253, 0.33);
+}
+
+
 /** Input Ends **/
 
 /** Circle Images **/
