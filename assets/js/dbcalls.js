@@ -89,10 +89,12 @@ promise = get_target_promise();
 promise.then(function(results) {    
   for (i = 0; i<8; i++){
     imgUrl = results[i].get("imageURL")
+    name = results[i].get("name")
     console.log(imgUrl);
     img = $('#' + main_target_ids[i]).children();
     console.log(img);
     img.attr("src", imgUrl);
+    img.attr("data-name", name);
     }
 })
 }
