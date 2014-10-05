@@ -52,6 +52,7 @@ function insert_badmouth(target_id, badmouth_text){
 		    		relation.add(badmouth);
 		    		target.save(null, {
 						success: function(target) {
+                            populate_feed(target_id);
 						},
 						error: function(target, error) {
 		    				console.log('Failed to create new object, with error code: ' + error.message);
@@ -103,6 +104,7 @@ promise.then(function(results) {
     }
 })
 }
+
 
 function populate_feed(target_id){
  	var query = new Parse.Query(Target);
