@@ -32,8 +32,12 @@ input[type="text"]:focus {
 	outline:none;
 	width: 400px;
 	height: 50px;
-	background: rgba(213, 213, 213, 0.12);
+	background: rgba(253, 253, 253, 0.33);
 	border-bottom: 2px solid #FFC190;
+}
+
+input[type="text"]:hover {
+	background: rgba(213, 213, 213, 0.12);
 }
 
 textarea.badmouth_text {
@@ -46,12 +50,49 @@ textarea.badmouth_text {
 	font-size: 1.2em;
 	color: rgb(95, 95, 95);
 	text-align: center;
-	margin: 25px 5px 25px 5px;
+	margin: 25px 5px 5px 5px;
 	width: 400px;
+	height: 80px;
 }
 
 textarea.badmouth_text:focus {
 	background: rgba(253, 253, 253, 0.33);
+}
+
+textarea.badmouth_text:hover {
+	background: rgba(213, 213, 213, 0.12);
+}
+
+.remaining_character_count {
+	color: rgb(207, 207, 207);
+	text-align: right;
+	margin-right: 40px;
+}
+
+.bitch_wrapper {
+	text-align: right;
+	margin-right: 30px;
+	padding: 5px;	
+}
+
+input[type="button"].bitch {
+	outline: none;
+	border: 0px;
+	padding: 5px 15px 5px 15px;
+	font-size: 0.9em;
+	color: white;
+	background: #8F98FF;
+	font-weight: bold;
+}
+
+input[type="button"].bitch:hover {
+	background: #7680FF;
+	color: rgb(230, 230, 230);
+}
+
+input[type="button"].bitch:active {
+	background: #6F7BFF;
+	color: #ffffff;
 }
 
 
@@ -89,13 +130,13 @@ textarea.badmouth_text:focus {
     transition: all 0.3s ease;
 }
 
-.deg0 { transform: translate(27em); } /* 27em = half the width of the wrapper */
-.deg45 { transform: rotate(45deg) translate(27em) rotate(-45deg); }
-.deg90 { transform: rotate(90deg) translate(27em) rotate(-90deg); }
+.deg0 { transform: translate(25em); } /* 27em = half the width of the wrapper */
+.deg45 { transform: rotate(45deg) translate(25em) rotate(-45deg); }
+.deg90 { transform: rotate(90deg) translate(26em) rotate(-90deg); }
 .deg135 { transform: rotate(135deg) translate(27em) rotate(-135deg); }
-.deg180 { transform: translate(-27em); }
-.deg225 { transform: rotate(225deg) translate(29.5em) rotate(-225deg); }
-.deg270 { transform: rotate(270deg) translate(27em) rotate(-270deg); }
+.deg180 { transform: translate(-29em); }
+.deg225 { transform: rotate(225deg) translate(29em) rotate(-225deg); }
+.deg270 { transform: rotate(270deg) translate(29em) rotate(-270deg); }
 .deg315 { transform: rotate(315deg) translate(27em) rotate(-315deg); }
 /** Circle Images Ends **/
 
@@ -109,9 +150,10 @@ textarea.badmouth_text:focus {
 	border: 1px solid #9dbef5;
 	padding: 15px;
 	width: 500px;
-	height: 300px;
+	height: 320px;
 	margin: 0 auto;
 	margin-top: 200px;
+	overflow: hidden;
 }
 
 h1.title {

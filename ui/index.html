@@ -21,8 +21,9 @@
 					<h1 class="title">What's fucked up?</h1>
 					<input type="text" placeholder="What's fucked up?" class="chosen-target" id="chosen-target">
 
-					<textarea class="badmouth_text" placeholder="Pour your heart out here!"></textarea><!--/.badmouth_text -->
-
+					<textarea class="badmouth_text" placeholder="Pour your heart out here!" maxlength="140"></textarea><!--/.badmouth_text -->
+					<div class="remaining_character_count">140</div><!--/.character_count -->
+					<div class="bitch_wrapper"><input type="button" class="bitch" value="Bitch"></div><!--/.bitch_wrapper -->
 				</form>
 			</div><!--/.middle-box -->
 		</div><!--/.center-box -->
@@ -66,7 +67,7 @@
 			}
 		};
 
-		$('.target').click(function(e) {
+		$('.target').click(function(e) {	
 			var clicked_image = e.target.id;
 			$('#' + clicked_image).removeClass('grayscale');
 			for(var i = 0; i < top_targets.targets.length; i++) {
@@ -81,9 +82,14 @@
 			if (target_name) {
 				$('.chosen-target').animate({'color': 'red'}, 500, function() {
 					$('.chosen-target').val(target_name);
-					$('.badmouth_text').attr("placeholder", "What's fucked up about " + target_name + "?");
+					$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
 				});
 			}
+		});
+
+		$('.badmouth_text').keyup(function() {
+			var current_length = $('.badmouth_text').val().length;
+			$('.remaining_character_count').text(140 - current_length);
 		});
 	</script>
 </body>
