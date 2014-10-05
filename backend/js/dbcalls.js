@@ -52,10 +52,9 @@ function insert_badmouth(target_id, badmouth_text){
 		    		relation.add(badmouth);
 		    		target.save(null, {
 						success: function(target) {
-		    				alert('New object created with objectId: ' + target.id);
 						},
 						error: function(target, error) {
-		    				alert('Failed to create new object, with error code: ' + error.message);
+		    				console.log('Failed to create new object, with error code: ' + error.message);
 						}
 
 					});
@@ -67,7 +66,7 @@ function insert_badmouth(target_id, badmouth_text){
 			});
 		},
 		error: function(badmouth, error) {
-    		alert('Failed to create new object, with error code: ' + error.message);
+    		console.log('Failed to create new object, with error code: ' + error.message);
 		}
 	});
 
