@@ -98,6 +98,21 @@ promise.then(function(results) {
     }
 })
 }
+
+function populate_feed(target_id){
+ 	var query = new Parse.Query(Target);
+	query.get(target_id, {
+        success: function(target) {
+            target.relation("badmouths").query().find().then(function (results2) {
+                for (i = 0; i < results2.length; i++){
+                    console.log(results2[i].get("text"))
+                }
+            })
+        },
+        error: function(target, error) {
+        }
+    });
+}
                         
 function get_badmouths(target_id) {
     var query = new Parse.Query(Target);
