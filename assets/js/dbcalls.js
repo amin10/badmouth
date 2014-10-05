@@ -111,6 +111,7 @@ function populate_feed(target_id){
                 console.log(list);
                 list.html('')
                 for (i = 0; i < results2.length; i++){
+                    if (i > 7) {break;}
                     list.append('<li><blockquote>' + results2[i].get("text") + '</blockquote></li>') 
                 }
             })
