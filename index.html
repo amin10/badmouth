@@ -96,10 +96,11 @@
 			}
 
 			var target_name = top_targets.rotate_target_images(clicked_image);
-
-			if (target_name) {
+            var target_id = $('.circle-images').find('#' + clicked_image)[0].dataset.id
+			if (target_name && target_id) {
 				$('.chosen_target').val(target_name);
 				$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
+                populate_feed(target_id);
 			}
 
 			// populate_feed()
