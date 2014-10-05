@@ -284,6 +284,13 @@ blockquote em{
 	-webkit-filter: grayscale(0);
 }
 
+h3.feed_title {
+	font-size: 1.2em;
+	color: rgb(165, 165, 165);
+	margin: 0 0 0 17px;
+	font-weight: bold;
+}
+
 /** Feed Ends **/
 
 
