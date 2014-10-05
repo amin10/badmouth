@@ -29,13 +29,14 @@
 		</div><!--/.center-box -->
 
 		<a href="#" id="first" class="target deg0" data-angle="0"><img data-name="Angelina Jolie" id="angelina" src="assets/images/angelina.jpg" class="img-circle"></a>
-		<a href="#" id="second" class="target deg45" data-angle="45"><img data-name="Emma Stone" id="stone" src="assets/images/stone.jpg" class="img-circle"></a>
+		<a href="#" id="second" class="target deg45" data-angle="45"><img alt="Emma Stone" title="Emma Stone" data-name="Emma Stone" id="stone" src="assets/images/stone.jpg" class="img-circle"></a>
 		<a href="#" id="third" class="target deg90" data-angle="90"><img data-name="Deepika Padukone" id="padukone" src="assets/images/padukone.jpg" class="img-circle"></a>
 		<a href="#" id="fourth" class="target deg135" data-angle="135"><img data-name="Jennifer Lawrence" id="lawrence" src="assets/images/lawrence.jpg" class="img-circle"></a>
 		<a href="#" id="fifth" class="target deg180" data-angle="180"><img data-name="Natalie Portman" id="portman" src="assets/images/portman.jpg" class="img-circle"></a>
 		<a href="#" id="sixth" class="target deg225" data-angle="225"><img data-name="Colbie Smulders" id="smulders" src="assets/images/smulders.jpg" class="img-circle"></a>
 		<a href="#" id="seventh" class="target deg270" data-angle="270"><img data-name="Keira Knightley" id="knightley" src="assets/images/knightley.jpg" class="img-circle"></a>
-		<a href="#" id="eighth" class="target deg315" data-angle="315"><img data-name="Emma Watson" id="watson" src="assets/images/watson.jpg" class="img-circle"></a>
+		<!-- <a href="#" id="eighth" class="target deg315" data-angle="315"><img data-name="Emma Watson" id="watson" src="assets/images/watson.jpg" class="img-circle"></a> -->
+		<a href="#" id="eighth" class="target deg315" data-angle="315">APPLE</a>
 	</div><!--/.circle-images -->
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -44,62 +45,66 @@
 		<script src="assets/js/dbcalls.js"></script>
 		
 		<script type="text/javascript">
-		var top_targets = {
-			targets: ['angelina', 'stone', 'padukone', 'lawrence', 'portman', 'smulders', 'knightley', 'watson'],
-			target_ids: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth'],
+			$(document).ready(function() {
+				populate_eights();
+			});
 
-			get_target_angle: function(target_name) {
-				return $('#' + target_name)[0].parentNode.dataset.angle;
-			},
+			var top_targets = {
+				targets: ['angelina', 'stone', 'padukone', 'lawrence', 'portman', 'smulders', 'knightley', 'watson'],
+				target_ids: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth'],
 
-			rotate_target_images: function(target_on_top) {
-				while(top_targets.get_target_angle(target_on_top) != 270) { // 270 is the angle at the top.
-					for(var i = 0; i < top_targets.target_ids.length; i++) {
-						var moving_target = top_targets.targets[i];
-						var current_angle = top_targets.get_target_angle(moving_target);
-						var selected_target = $('.circle-images').find('#' + top_targets.target_ids[i])[0].id;
-						
-						$('#' + selected_target).attr('data-angle', ((parseInt(current_angle) + 45) % 360));
-						$('#' + selected_target).addClass('deg' + ((parseInt(current_angle) + 45) % 360));
-						$('#' + selected_target).removeClass('deg' + current_angle);			// You can use a variant of this code to force the startup animation.
+				get_target_angle: function(target_name) {
+					return $('#' + target_name)[0].parentNode.dataset.angle;
+				},
+
+				rotate_target_images: function(target_on_top) {
+					while(top_targets.get_target_angle(target_on_top) != 270) { // 270 is the angle at the top.
+						for(var i = 0; i < top_targets.target_ids.length; i++) {
+							var moving_target = top_targets.targets[i];
+							var current_angle = top_targets.get_target_angle(moving_target);
+							var selected_target = $('.circle-images').find('#' + top_targets.target_ids[i])[0].id;
+							
+							$('#' + selected_target).attr('data-angle', ((parseInt(current_angle) + 45) % 360));
+							$('#' + selected_target).addClass('deg' + ((parseInt(current_angle) + 45) % 360));
+							$('#' + selected_target).removeClass('deg' + current_angle);			// You can use a variant of this code to force the startup animation.
+						}
+					}
+
+					var target_name = $('.circle-images').find('#' + target_on_top)[0].dataset.name;
+					return target_name;
+				}
+			};
+
+			$('.target').click(function(e) {	
+				var clicked_image = e.target.id;
+				$('#' + clicked_image).removeClass('grayscale');
+				for(var i = 0; i < top_targets.targets.length; i++) {
+					if(top_targets.targets[i] != clicked_image) {
+						change_to_grayscale = top_targets.targets[i];
+						$('#' + change_to_grayscale).addClass('grayscale');
 					}
 				}
 
-				var target_name = $('.circle-images').find('#' + target_on_top)[0].dataset.name;
-				return target_name;
-			}
-		};
-
-		$('.target').click(function(e) {	
-			var clicked_image = e.target.id;
-			$('#' + clicked_image).removeClass('grayscale');
-			for(var i = 0; i < top_targets.targets.length; i++) {
-				if(top_targets.targets[i] != clicked_image) {
-					change_to_grayscale = top_targets.targets[i];
-					$('#' + change_to_grayscale).addClass('grayscale');
+				var target_name = top_targets.rotate_target_images(clicked_image);
+				
+				if (target_name) {
+					$('.chosen_target').animate({'color': 'red'}, 500, function() {
+						$('.chosen_target').val(target_name);
+						$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
+					});
 				}
-			}
+			});
 
-			var target_name = top_targets.rotate_target_images(clicked_image);
-			
-			if (target_name) {
-				$('.chosen_target').animate({'color': 'red'}, 500, function() {
-					$('.chosen_target').val(target_name);
-					$('.badmouth_text').attr("placeholder", "What do you wanna bitch about " + target_name + "?");
-				});
-			}
-		});
+			$('.badmouth_text').keyup(function() {
+				var current_length = $('.badmouth_text').val().length;
+				$('.remaining_character_count').text(140 - current_length);
+			});
 
-		$('.badmouth_text').keyup(function() {
-			var current_length = $('.badmouth_text').val().length;
-			$('.remaining_character_count').text(140 - current_length);
-		});
-
-		$('input.bitch').on("click", function(e) {
-			var target = $('.chosen_target').val();
-			var badmouth_text = $('.badmouth_text').val();
-			submit_badmouth(target, badmouth_text);
-		});
-	</script>
+			$('input.bitch').on("click", function(e) {
+				var target = $('.chosen_target').val();
+				var badmouth_text = $('.badmouth_text').val();
+				submit_badmouth(target, badmouth_text);
+			});
+		</script>
 </body>
 </html>
