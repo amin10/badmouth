@@ -80,6 +80,7 @@ function get_target_promise(){
     var time = (5 * 24 * 3600 * 1000);
     var expirationDate = new Date(d.getTime() - (time));
     query.greaterThan("createdAt",  expirationDate);
+    query.exists("imageURL");
     query.descending("bmcount");
     return query.find();
 }
@@ -90,11 +91,13 @@ promise.then(function(results) {
   for (i = 0; i<8; i++){
     imgUrl = results[i].get("imageURL")
     name = results[i].get("name")
+    target_id = results[i].id
     //console.log(imgUrl);
     img = $('#' + main_target_ids[i]).children();
     //console.log(img);
     img.attr("src", imgUrl);
     img.attr("data-name", name);
+    img.attr("data-id", target_id);  
     }
 })
 }
@@ -104,12 +107,16 @@ function populate_feed(target_id){
 	query.get(target_id, {
         success: function(target) {
             target.relation("badmouths").query().find().then(function (results2) {
+                var list = $('#feed-list')
+                console.log(list);
+                list.html('')
                 for (i = 0; i < results2.length; i++){
-                    console.log(results2[i].get("text"))
+                    list.append('<li><blockquote>' + results2[i].get("text") + '</blockquote></li>') 
                 }
             })
         },
         error: function(target, error) {
+            console.log(error);
         }
     });
 }
