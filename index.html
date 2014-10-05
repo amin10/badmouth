@@ -17,13 +17,13 @@
 	<div class="row circle-images">
 		<div class="center-box">
 			<div class="middle-box">
-				<form action="#">
+				<form action="#" id="bitching-form">
 					<h1 class="title">What's fucked up?</h1>
 					<input type="text" placeholder="What's fucked up?" class="chosen_target" id="chosen_target">
 
 					<textarea class="badmouth_text" placeholder="Pour your heart out here!" maxlength="140"></textarea><!--/.badmouth_text -->
 					<div class="remaining_character_count">140</div><!--/.character_count -->
-					<div class="bitch_wrapper"><input type="button" class="bitch" value="Bitch"></div><!--/.bitch_wrapper -->
+					<div class="bitch_wrapper"><input type="submit" class="bitch" value="Bitch"></div><!--/.bitch_wrapper -->
 				</form>
 			</div><!--/.middle-box -->
 		</div><!--/.center-box -->
@@ -105,15 +105,27 @@
 			// populate_feed()
 		});
 
-		$('.badmouth_text').keyup(function() {
+		$('.badmouth_text').keyup(function(abc) {
 			var current_length = $('.badmouth_text').val().length;
 			$('.remaining_character_count').text(140 - current_length);
+
+			if (abc.keyCode === 13) {
+				submit_bitching_form();
+			}
 		});
 
-		$('input.bitch').on("click", function(e) {
+		function submit_bitching_form() {
 			var target = $('.chosen_target').val();
 			var badmouth_text = $('.badmouth_text').val();
 			submit_badmouth(target, badmouth_text);
+			$('.chosen_target').val('');
+			$('.badmouth_text').val('');
+			$('.remaining_character_count').text('140');
+		}
+
+		$('#bitching-form').submit(function(abc) {
+			abc.preventDefault();
+			submit_bitching_form();
 		});
 	</script>
 </body>

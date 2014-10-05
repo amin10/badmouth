@@ -75,7 +75,7 @@ textarea.badmouth_text:hover {
 	padding: 5px;	
 }
 
-input[type="button"].bitch {
+input[type="submit"].bitch {
 	outline: none;
 	border: 0px;
 	padding: 5px 15px 5px 15px;
@@ -85,12 +85,12 @@ input[type="button"].bitch {
 	font-weight: bold;
 }
 
-input[type="button"].bitch:hover {
+input[type="submit"].bitch:hover {
 	background: #7680FF;
 	color: rgb(230, 230, 230);
 }
 
-input[type="button"].bitch:active {
+input[type="submit"].bitch:active {
 	background: #6F7BFF;
 	color: #ffffff;
 }
@@ -206,7 +206,7 @@ blockquote{
 }
 
 blockquote::before{
-	content: "\201C"; /*Unicode for Left Double Quote*/
+	content: "\201C  "; /*Unicode for Left Double Quote*/
 
 	/*Font*/
 	font-family: Georgia, serif;
@@ -216,7 +216,7 @@ blockquote::before{
 
 	/*Positioning*/
 	position: absolute;
-	left: 10px;
+	/*left: 10px;*/
 	top:5px;
 }
 
@@ -231,7 +231,7 @@ blockquote::after{
 
 	/*Positioning*/
 	position: absolute;
-	right: 10px;
+	/*right: 10px;*/
 	top:5px;
 }
 
